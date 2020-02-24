@@ -25,12 +25,12 @@ class Employee
     end
 
     def tax_bracket
-        salaryMan = @@all.select{|employees| employees.salary.between?((self.salary - 1000),(self.salary + 1000))}
+        salaryMan = @@all.select{|employees| ((self.salary - 1000)..(self.salary + 1000)).include?(employees.salary)}
         salaryMan.map{|salary| salary.name}
     end
 
-    def all
+    def self.all
         @@all
     end
-
 end
+#employees.salary.between?((self.salary - 1000),(self.salary + 1000))

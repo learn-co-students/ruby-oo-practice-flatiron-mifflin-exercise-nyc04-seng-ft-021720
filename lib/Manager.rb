@@ -31,7 +31,7 @@ class Manager
         @@all.map{|managers| managers.department}
     end
     
-    def all
+    def self.all
         @@all
     end
 

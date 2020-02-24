@@ -10,6 +10,8 @@ jim = Employee.new("Jim", 50_000, michael)
 
 michael.hire_employee("Pam", 50_100, michael)
 michael.hire_employee("Chad", 51_100, dwight)
+p Manager.all
+p Employee.all
 
 p jim.tax_bracket
 

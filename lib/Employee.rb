@@ -14,12 +14,12 @@ class Employee
         self.manager.name
     end
 
-    def paid_over(num)
+    def self.paid_over(num)
         overpaid = @@all.select{|employees| employees.salary > num}
         overpaid.map{|overpaids| overpaids.name}
     end
 
-    def find_by_department(departments)
+    def self.find_by_department(departments)
         departo = @@all.find{|employees| employees.manager.department == departments}
         departo.name
     end

@@ -21,13 +21,13 @@ class Manager
         "Hired!"
     end
 
-    def average_age
+    def self.average_age
         ages = @@all.map{|managers| managers.age}
         age_total = ages.reduce{|total, num| total+num}
         (age_total/ages.length).to_f
     end
 
-    def all_departments
+    def self.all_departments
         @@all.map{|managers| managers.department}
     end
     

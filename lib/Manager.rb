@@ -17,21 +17,35 @@ class Manager
         @@all
     end
 
+    def name
+        @name
+    end
+
+    def department
+        @department
+    end
+
+    def age
+        @age
+    end
+
+    def employees
+        @employees << Employee.all.select {|emp| emp.manager == self}
+    end
+
     # add employee with name and age arguments, add to @employees array
     def hire_employee(name, salary)
-        self.employees << name
         Employee.new(name, salary, self)
     end
 
     # return array of all department names that all managers oversee
     def self.all_departments
-        Manager.all.map{|mgr| mgr.department}
+        Manager.all.map {|mgr| mgr.department}
     end
 
     # return the average age of all managers, should be a float
     def self.average_age
-        manager_ages = self.all.map {|mgr| mgr.age}
-        manager_ages.inject{|sum, el| sum + el}.to_f / manager_ages.size
+        Manager.all.map {|mgr| mgr.age}.sum.to_f / Manager.all.count
     end
 
 end
